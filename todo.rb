@@ -1,5 +1,5 @@
 require "sinatra"
-require "sinatra/reloader"
+require "sinatra/reloader" if development?
 require "sinatra/content_for"
 require "tilt/erubis"
 
@@ -12,6 +12,7 @@ helpers do
   def all_completed?(list)
     result = ''
     todos = []
+    return nil if list[:todos].empty?
     if list[:todos].all? {|todo| todo[:completed] == true}
       return 'class="complete"'
     end
