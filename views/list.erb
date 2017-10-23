@@ -1,4 +1,4 @@
-<section id="todos" <%= all_completed?(@list) %>>
+<section id="todos" class=<%= all_completed?(@list) %>>
 	<header class="actions">
 		<% sorted_list = sort_list_by_completed(@list) %>
 		<h2><%= @list[:name] %></h2>
