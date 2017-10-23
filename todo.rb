@@ -156,7 +156,7 @@ end
 post "/lists/:list_id/destroy" do
   @id = params[:list_id].to_i
   list = load_list(@id)
-  list.delete_at(@id)
+  session[:lists].delete_at(@id)
   session[:success] = "The list has been deleted."
   redirect "/lists"
 end
